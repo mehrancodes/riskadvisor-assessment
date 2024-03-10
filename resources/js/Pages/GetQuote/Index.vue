@@ -1,6 +1,8 @@
 <script setup>
 import { Head } from '@inertiajs/vue3';
 import { ref, reactive } from "vue";
+import { router } from '@inertiajs/vue3';
+import InsuranceProductsForm from "@/Components/GetQuoteSteps/InsuranceProductsForm.vue";
 
 const totalSteps = 3;
 const step = ref(1);
@@ -22,6 +24,26 @@ defineProps({
         required: true,
     }
 })
+
+function syncInsuranceProducts(products) {
+    form.insurance_products = products;
+}
+
+function nextStep() {
+    if (step.value < totalSteps) {
+        step.value++;
+    }
+}
+
+function previousStep() {
+    if (step.value > 0) {
+        step.value--;
+    }
+}
+
+function submit() {
+    router.post('/users', form)
+}
 </script>
 
 <template>
@@ -41,7 +63,11 @@ defineProps({
         <!-- Right Side (Form) -->
         <div class="my-auto absolute bg-white p-5 rounded-xl left-3 right-3 top-16 mx-auto md:flex-1 md:static md:rounded-none md:left-0 md:right-0 md:top-0">
             <div class="max-w-sm mx-auto">
-                // Form components go here...
+                <InsuranceProductsForm
+                    v-if="step === 1"
+                    @syncProducts="syncInsuranceProducts"
+                    @clickNextStep="nextStep"
+                    :products="products" />
             </div>
         </div>
     </div>
