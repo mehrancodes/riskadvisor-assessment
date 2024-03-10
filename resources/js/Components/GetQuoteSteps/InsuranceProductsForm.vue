@@ -34,13 +34,13 @@ function emitNextStep() {
 
 <template>
     <section>
-        <h1 class="text-2xl font-bold text-gray-800">Let's get started</h1>
-        <p class="text-sm text-gray-400 mt-2">
-            Please select one or more options below that you'd like to have quoted for insurance.
-        </p>
+        <form>
+            <h1 class="text-2xl font-semibold leading-7 text-gray-800">Let's get started</h1>
+            <p class="text-sm text-gray-400 mt-2 leading-6">
+                Please select one or more options below that you'd like to have quoted for insurance.
+            </p>
 
-        <section class="mt-5">
-            <template v-for="product in products" :key="product.id">
+            <div class="mt-5" v-for="product in products" :key="product.id">
                 <div
                     class="relative rounded-xl mt-4 bg-cover bg-center cursor-pointer border border-blue-200 hover:border-blue-700 hover:shadow-xl"
                     :class="{ 'border border-blue-800': isProductSelected(product.id) }"
@@ -63,19 +63,19 @@ function emitNextStep() {
                         </div>
                     </div>
                 </div>
-            </template>
-
-            <div class="flex items-center justify-between mt-4">
-                <button @click.prevent="emitNextStep" class="bg-blue-600 hover:bg-blue-700 text-sm text-white w-full py-3 px-4 rounded-xl focus:outline-none focus:shadow-outline">
-                    Agree and Continue
-                </button>
             </div>
+        </form>
 
-            <div class="mt-4 text-sm text-gray-500">
-                By continuing this from you agree to share data with Franke
-                Insurance Services as defined in the Terms of Use and Privacy
-                Policy.
-            </div>
-        </section>
+        <div class="flex items-center justify-between mt-4">
+            <button @click.prevent="emitNextStep" class="bg-blue-600 hover:bg-blue-700 text-sm text-white w-full py-3 px-4 rounded-xl focus:outline-none focus:shadow-outline">
+                Agree and Continue
+            </button>
+        </div>
+
+        <div class="mt-4 text-sm text-gray-500">
+            By continuing this from you agree to share data with Franke
+            Insurance Services as defined in the Terms of Use and Privacy
+            Policy.
+        </div>
     </section>
 </template>

@@ -3,12 +3,13 @@ import { Head } from '@inertiajs/vue3';
 import { ref, reactive } from "vue";
 import { router } from '@inertiajs/vue3';
 import InsuranceProductsForm from "@/Components/GetQuoteSteps/InsuranceProductsForm.vue";
+import PersonalInformationForm from "@/Components/GetQuoteSteps/PersonalInformationForm.vue";
 
 const totalSteps = 3;
 const step = ref(1);
 const stepBackgroundImages = {
     1: 'https://images.unsplash.com/photo-1656992470123-58162a9e9da6?q=80&w=800&fit=crop',
-    2: 'https://images.unsplash.com/photo-1656992470123-58162a9e9da6?q=80&w=800&fit=crop',
+    2: 'https://images.unsplash.com/photo-1595785371554-eb445d0df6a9?q=80&w=800&fit=crop',
     3: 'https://images.unsplash.com/photo-1656992470123-58162a9e9da6?q=80&w=800&fit=crop',
 };
 const form = reactive({
@@ -49,14 +50,14 @@ function submit() {
 <template>
     <Head title="Get Quote" />
 
-    <div class="flex flex-col md:flex-row relative h-screen">
+    <div class="flex flex-col md:flex-row">
 
         <!-- Left Side (Image) -->
-        <div class="md:flex-1 h-screen">
+        <div class="md:flex-1">
             <img
                 :src="stepBackgroundImages[step]"
                 alt="Left Side Image"
-                class="w-full h-full object-cover md:rounded-r-xl"
+                class="w-full object-cover md:rounded-r-xl"
             >
         </div>
 
@@ -65,9 +66,16 @@ function submit() {
             <div class="max-w-sm mx-auto">
                 <InsuranceProductsForm
                     v-if="step === 1"
-                    @syncProducts="syncInsuranceProducts"
-                    @clickNextStep="nextStep"
-                    :products="products" />
+                    :products="products"
+                    class="mt-5"
+                    @sync-products="syncInsuranceProducts"
+                    @click-next-step="nextStep" />
+
+                <PersonalInformationForm
+                    v-if="step === 2"
+                    class="mt-5"
+                    @click-previous-step="previousStep"
+                    @click-next-step="nextStep" />
             </div>
         </div>
     </div>
