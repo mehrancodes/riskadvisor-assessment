@@ -1,16 +1,21 @@
 <script setup>
 import CheckIcon from "@/Components/Icons/CheckIcon.vue";
+import {defineProps, ref} from "vue";
 
 const insuranceProducts = defineModel();
 
+const { products, errors } = defineProps({
+  products: {
+    type: Array,
+    required: true,
+  },
+  errors: Object
+})
+
 const emit = defineEmits(['clickNextStep']);
 
-defineProps({
-    products: {
-        type: Array,
-        required: true,
-    }
-})
+const showErrorMessage = ref(false);
+
 function syncProduct(productId) {
     isProductSelected(productId)
         ? insuranceProducts.value.splice(insuranceProductIndex(productId), 1)
@@ -26,6 +31,10 @@ function insuranceProductIndex(productId) {
 }
 
 function emitNextStep() {
+    if (insuranceProducts.value.length < 1) {
+        return showErrorMessage.value = true;
+    }
+
     emit('clickNextStep');
 }
 </script>
@@ -62,6 +71,8 @@ function emitNextStep() {
                     </div>
                 </div>
             </div>
+            <div v-if="showErrorMessage" class="mt-4 text-red-500 leading-6 text-xs">You need to choose at least one insurance product.</div>
+            <div v-if="errors['submission.insurance_products']" class="mt-4 text-red-500 leading-6 text-xs">{{ errors['submission.insurance_products'] }}</div>
         </form>
 
         <div class="flex items-center justify-between mt-4">
