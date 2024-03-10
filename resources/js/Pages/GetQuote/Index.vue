@@ -4,6 +4,7 @@ import { ref, reactive } from "vue";
 import { router } from '@inertiajs/vue3';
 import InsuranceProductsForm from "@/Components/GetQuoteSteps/InsuranceProductsForm.vue";
 import PersonalInformationForm from "@/Components/GetQuoteSteps/PersonalInformationForm.vue";
+import AddressInformationForm from "@/Components/GetQuoteSteps/AddressInformationForm.vue";
 
 const totalSteps = 3;
 const step = ref(1);
@@ -73,6 +74,12 @@ function submit() {
 
                 <PersonalInformationForm
                     v-if="step === 2"
+                    class="mt-5"
+                    @click-previous-step="previousStep"
+                    @click-next-step="nextStep" />
+
+                <AddressInformationForm
+                    v-if="step === 3"
                     class="mt-5"
                     @click-previous-step="previousStep"
                     @click-next-step="nextStep" />
