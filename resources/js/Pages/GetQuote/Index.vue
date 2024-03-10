@@ -7,17 +7,23 @@ import PersonalInformationForm from "@/Components/GetQuoteSteps/PersonalInformat
 import AddressInformationForm from "@/Components/GetQuoteSteps/AddressInformationForm.vue";
 
 const totalSteps = 3;
+
 const step = ref(1);
+
 const stepBackgroundImages = {
     1: 'https://images.unsplash.com/photo-1656992470123-58162a9e9da6?q=80&w=800&fit=crop',
     2: 'https://images.unsplash.com/photo-1595785371554-eb445d0df6a9?q=80&w=800&fit=crop',
     3: 'https://images.unsplash.com/photo-1656992470123-58162a9e9da6?q=80&w=800&fit=crop',
 };
+
 const form = reactive({
-    first_name: null,
-    last_name: null,
-    email: null,
+    consumer_uuid: null,
     insurance_products: [],
+    street_address: null,
+    apt: null,
+    city: null,
+    state: null,
+    zip_code: null,
 })
 
 defineProps({
@@ -81,6 +87,7 @@ function submit() {
                 <AddressInformationForm
                     v-if="step === 3"
                     class="mt-5"
+                    v-model="form"
                     @click-previous-step="previousStep"
                     @click-next-step="nextStep" />
             </div>
