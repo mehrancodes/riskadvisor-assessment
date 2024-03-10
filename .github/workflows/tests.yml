@@ -1,6 +1,6 @@
 name: Tests
 
-on: ['push', 'pull_request']
+on: ['pull_request']
 
 jobs:
   ci:
@@ -16,9 +16,23 @@ jobs:
           php-version: 8.2
           tools: composer:v2
           coverage: xdebug
+          node-version: 18.17
 
       - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        run: |
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          npm install
+          npm run build
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup Project
+        run: |
+          cp .env.example .env
+          php artisan key:generate
 
       - name: Tests
         run: ./vendor/bin/pest
