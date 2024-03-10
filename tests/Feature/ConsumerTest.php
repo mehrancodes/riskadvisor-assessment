@@ -18,7 +18,7 @@ test('consumers can have several submissions', function () {
             'submission' => array_merge(
                 $submission,
                 ['insurance_products' => $products->pluck('id')->toArray()]
-            )
+            ),
         ];
 
         $response = $this->post(route('get-quote'), $payload);

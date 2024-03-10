@@ -17,7 +17,7 @@ test('it can create or update a consumer contact information', function ($actual
     [
         'actual' => [
             'count' => 0,
-            'attributes' => []
+            'attributes' => [],
         ],
         'expected' => null,
     ],
