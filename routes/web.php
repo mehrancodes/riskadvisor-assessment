@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GetQuoteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubmitPersonalInformationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -38,4 +39,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/get-quote', GetQuoteController::class);
+Route::get('/get-quote', [GetQuoteController::class, 'index'])->name('get-quote.show');
+
+Route::post('/get-quote', [GetQuoteController::class, 'store'])->name('get-quote');
