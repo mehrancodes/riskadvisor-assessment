@@ -33,10 +33,6 @@ defineProps({
     }
 })
 
-function syncInsuranceProducts(products) {
-    form.insurance_products = products;
-}
-
 function nextStep() {
     if (step.value < totalSteps) {
         step.value++;
@@ -75,7 +71,7 @@ function submit() {
                     v-if="step === 1"
                     :products="products"
                     class="mt-5"
-                    @sync-products="syncInsuranceProducts"
+                    v-model="form.insurance_products"
                     @click-next-step="nextStep" />
 
                 <PersonalInformationForm

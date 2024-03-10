@@ -1,9 +1,9 @@
 <script setup>
 import CheckIcon from "@/Components/Icons/CheckIcon.vue";
-import {ref} from "vue";
 
-const emit = defineEmits(['clickNextStep', 'syncProducts'])
-const insuranceProducts = ref([]);
+const insuranceProducts = defineModel();
+
+const emit = defineEmits(['clickNextStep']);
 
 defineProps({
     products: {
@@ -15,8 +15,6 @@ function syncProduct(productId) {
     isProductSelected(productId)
         ? insuranceProducts.value.splice(insuranceProductIndex(productId), 1)
         : insuranceProducts.value.push(productId);
-
-    emit('syncProducts', insuranceProducts.value)
 }
 
 function isProductSelected(productId) {
