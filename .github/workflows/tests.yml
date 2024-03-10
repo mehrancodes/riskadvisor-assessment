@@ -28,6 +28,8 @@ jobs:
         uses: actions/cache@v2
         with:
           key: ${{ runner.OS }}-npm-cache-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
 
       - name: Setup Project
         run: |
