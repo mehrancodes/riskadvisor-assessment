@@ -10,6 +10,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;

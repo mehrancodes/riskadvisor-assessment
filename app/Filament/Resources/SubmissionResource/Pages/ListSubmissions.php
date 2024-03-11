@@ -6,6 +6,9 @@ use App\Filament\Resources\SubmissionResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class ListSubmissions extends ListRecords
 {
     protected static string $resource = SubmissionResource::class;

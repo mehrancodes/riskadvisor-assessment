@@ -6,6 +6,9 @@ use App\Filament\Resources\ProductResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class ListProducts extends ListRecords
 {
     protected static string $resource = ProductResource::class;

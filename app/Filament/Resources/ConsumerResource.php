@@ -11,6 +11,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class ConsumerResource extends Resource
 {
     protected static ?string $model = Consumer::class;

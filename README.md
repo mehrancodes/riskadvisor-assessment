@@ -85,6 +85,7 @@ php artisan serve
 
 Visit `http://localhost:8000/get-quote` in your browser to access the RiskAdvisor Get Quote Page.
 
+Using the credentials 'test@example.com' and 'password', access the admin panel at the following URL: http://localhost:8000/admin.
 
 ## RiskAdvisor Assessments Project Time
 
