@@ -101,3 +101,6 @@ I invested a total of 11 hours and 20 minutes in the development of the RiskAdvi
 
 ### Additional Note:
 I initially faced challenges with Inertia.js form processing and validation, leading to a deviation from the planned development approach. To maintain project progress, I opted for processing the entire wizard form at once, which contributed to exceeding the initial 8-hour timeframe. This adjustment allowed for faster development while acknowledging the need for further exploration of Inertia.js form handling in future iterations.
+
+### Room for Enhancement:
+There is still room for improvement and enhancement in certain aspects of the project. I would be delighted to discuss these potential enhancements in our next meeting.
