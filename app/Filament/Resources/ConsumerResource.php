@@ -4,15 +4,12 @@ namespace App\Filament\Resources;
 
 use App\Enums\ContactPreferenceEnum;
 use App\Filament\Resources\ConsumerResource\Pages;
-use App\Filament\Resources\ConsumerResource\RelationManagers;
 use App\Models\Consumer;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ConsumerResource extends Resource
 {
