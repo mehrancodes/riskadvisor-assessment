@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://riskadvisor.insure/" target="_blank"><img src="https://riskadvisor.insure/wp-content/uploads/2022/06/withoutTagline.png" width="400" alt="RiskAdvisor Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## RiskAdvisor Assessments Project Setup
+[![Actions Status](https://github.com/mehrancodes/riskadvisor-assessment/actions/workflows/tests.yml/badge.svg?event=pull_request)](https://github.com/mehrancodes/riskadvisor-assessment/actions) | Latest Code Coverage: 82%
 
-## About Laravel
+Welcome to the RiskAdvisor Assessments project! Follow these simple steps to set up the project on your local machine.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Prerequisites
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Before you begin, make sure you have the following installed:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Composer](https://getcomposer.org/)
+- [PHP](https://www.php.net/) (>= 8.1)
+- [Node.js](https://nodejs.org/) (>= 18)
+- [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) (for managing front-end assets)
+- [MySQL](https://www.mysql.com/) or [SQLite](https://www.sqlite.org/) database
 
-## Learning Laravel
+### Getting Started
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clone the repository to your local machine:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   ```bash
+   git clone https://github.com/mehrancodes/riskadvisor-assessment.git
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Navigate to the project directory:
 
-## Laravel Sponsors
+   ```bash
+   cd riskadvisor-assessments
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Copy the `.env.example` file and create a new `.env` file:
 
-### Premium Partners
+   ```bash
+   cp .env.example .env
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. Install PHP dependencies using Composer:
 
-## Contributing
+   ```bash
+   composer install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Generate an application key:
 
-## Code of Conduct
+   ```bash
+   php artisan key:generate
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Update the `.env` file with your database configuration.
 
-## Security Vulnerabilities
+7. Create a new database in your MySQL server or use SQLite.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+8. Run the database migrations:
 
-## License
+   ```bash
+   php artisan migrate
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+9. Seed the database with sample data:
+
+   ```bash
+   php artisan db:seed
+   ```
+
+### Running the Application
+
+After completing the setup, you can run the application using the following command:
+
+```bash
+php artisan serve
+```
+
+Visit `http://localhost:8000` in your browser to access the RiskAdvisor Assessments project.
+
+
+## RiskAdvisor Assessments Project Time
+
+I invested a total of 11 hours and 20 minutes in the development of the RiskAdvisor Assessments project. Below is a breakdown of the time spent on each aspect:
+
+- **Brainstorming:** 1 hour and 50 minutes
+    - During this phase, I conceptualized the project, outlined features, and considered the technical approach.
+
+- **Project Setup and Environment Configuration:** 20 minutes
+    - This time was dedicated to installing a fresh Laravel project, setting up the Laravel, Vue.js, Tailwind CSS, and Inertia.js environment, and configuring necessary files.
+
+- **Frontend Development (Vue.js and Tailwind CSS):** 5 hours and 20 minutes
+    - I spent a significant portion of time developing the frontend using Vue.js and Tailwind CSS, including creating the three-step wizard form.
+
+- **Backend Development (Laravel and Inertia.js):** 2 hours
+    - The backend development involved setting up Laravel and Inertia.js, creating models and migrations, and configuring web routes.
+
+- **Testing and Debugging:** 40 minutes
+    - I allocated time for writing testes, do manual test and debugging to ensure the smooth functioning of the application.
+
+- **Project Review and Optimization:** 30 minutes
+    - I conducted a review of the project to identify potential optimizations and enhance performance.
+
+- **Documentation and README:** 40 minutes
+    - The documentation phase included creating a README file, providing setup instructions, and explaining the reasoning behind certain development decisions.
+
+### Additional Note:
+I initially faced challenges with Inertia.js form processing and validation, leading to a deviation from the planned development approach. To maintain project progress, I opted for processing the entire wizard form at once, which contributed to exceeding the initial 8-hour timeframe. This adjustment allowed for faster development while acknowledging the need for further exploration of Inertia.js form handling in future iterations.

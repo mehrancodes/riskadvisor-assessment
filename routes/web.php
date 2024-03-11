@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GetQuoteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/get-quote', [GetQuoteController::class, 'index'])->name('get-quote.show');
+
+Route::post('/get-quote', [GetQuoteController::class, 'store'])->name('get-quote');

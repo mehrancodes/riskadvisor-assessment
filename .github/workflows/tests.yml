@@ -1,0 +1,40 @@
+name: Tests
+
+on: ['pull_request']
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer:v2
+          coverage: xdebug
+          node-version: 18.17
+
+      - name: Install Dependencies
+        run: |
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          npm install
+          npm run build
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
+
+      - name: Setup Project
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Pest Tests
+        run: ./vendor/bin/pest --coverage
