@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\UpdateOrCreateConsumer;
-use App\Http\Requests\StorePersonalInformationRequest;
+use App\Http\Requests\StoreGetQuoteRequest;
 use App\Models\Product;
 use Illuminate\Support\Arr;
 use Inertia\Inertia;
@@ -17,7 +17,7 @@ class GetQuoteController extends Controller
         return Inertia::render('GetQuote/Index', compact('products'));
     }
 
-    public function store(StorePersonalInformationRequest $request, UpdateOrCreateConsumer $updateOrCreateConsumer)
+    public function store(StoreGetQuoteRequest $request, UpdateOrCreateConsumer $updateOrCreateConsumer)
     {
         $consumerData = $request->validated('consumer');
         $submissionData = Arr::except($request->validated('submission'), 'insurance_products');
