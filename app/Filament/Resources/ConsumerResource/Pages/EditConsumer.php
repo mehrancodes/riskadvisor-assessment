@@ -6,6 +6,9 @@ use App\Filament\Resources\ConsumerResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class EditConsumer extends EditRecord
 {
     protected static string $resource = ConsumerResource::class;

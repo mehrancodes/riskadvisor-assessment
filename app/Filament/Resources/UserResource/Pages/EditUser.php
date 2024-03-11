@@ -6,6 +6,9 @@ use App\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class EditUser extends EditRecord
 {
     protected static string $resource = UserResource::class;

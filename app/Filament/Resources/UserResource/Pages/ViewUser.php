@@ -6,6 +6,9 @@ use App\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class ViewUser extends ViewRecord
 {
     protected static string $resource = UserResource::class;

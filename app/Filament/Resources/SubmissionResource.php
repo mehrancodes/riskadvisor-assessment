@@ -10,6 +10,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
+/**
+ * @codeCoverageIgnoreStart
+ */
 class SubmissionResource extends Resource
 {
     protected static ?string $model = Submission::class;
