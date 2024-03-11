@@ -2,7 +2,9 @@
 
 namespace App\Enums;
 
-enum ContactPreferenceEnum: int
+use Filament\Support\Contracts\HasLabel;
+
+enum ContactPreferenceEnum: int implements HasLabel
 {
     case EMAIL = 1;
 
@@ -21,6 +23,22 @@ enum ContactPreferenceEnum: int
         return match ($this) {
             ContactPreferenceEnum::EMAIL => 'Email',
             ContactPreferenceEnum::PHONE_NUMBER => 'Phone No',
+        };
+    }
+
+    public function getLabel(): ?string
+    {
+        return match ($this) {
+            self::EMAIL => 'Email',
+            self::PHONE_NUMBER => 'Phone No',
+        };
+    }
+
+    public function getColor(): ?string
+    {
+        return match ($this) {
+            ContactPreferenceEnum::EMAIL => 'primary',
+            ContactPreferenceEnum::PHONE_NUMBER => 'success',
         };
     }
 }
