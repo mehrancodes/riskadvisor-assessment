@@ -63,6 +63,18 @@ Before you begin, make sure you have the following installed:
    php artisan db:seed
    ```
 
+10. Install the Node modules:
+
+    ```bash
+    npm install
+    ```
+   
+11. Build the Inertia.js:
+    
+    ```bash
+    npm run build
+    ```
+
 ### Running the Application
 
 After completing the setup, you can run the application using the following command:
@@ -71,7 +83,7 @@ After completing the setup, you can run the application using the following comm
 php artisan serve
 ```
 
-Visit `http://localhost:8000` in your browser to access the RiskAdvisor Assessments project.
+Visit `http://localhost:8000/get-quote` in your browser to access the RiskAdvisor Get Quote Page.
 
 
 ## RiskAdvisor Assessments Project Time
@@ -104,3 +116,6 @@ I initially faced challenges with Inertia.js form processing and validation, lea
 
 ### Room for Enhancement:
 There is still room for improvement and enhancement in certain aspects of the project. I would be delighted to discuss these potential enhancements in our next meeting.
+
+### FilamentPHP Admin Panel:
+Additionally, I took the initiative to integrate the FilamentPHP admin panel outside of the specified time to simplify data management for you. The admin panel provides an easy-to-use interface for handling entry data efficiently.
